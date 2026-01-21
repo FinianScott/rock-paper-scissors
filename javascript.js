@@ -25,3 +25,7 @@ function getHumanChoice (){
     //Get choice from user input. Assume valid value is entered. 
     return prompt("Enter Rock, Paper, or Scissors.");
 }
+
+//INIT user and computer scores to 0
+let humanScore = 0;
+let computerScore = 0;
