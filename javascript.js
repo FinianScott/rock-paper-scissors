@@ -26,47 +26,56 @@ function getHumanChoice (){
     return prompt("Enter Rock, Paper, or Scissors.");
 }
 
-//INIT user and computer scores to 0
-let humanScore = 0;
-let computerScore = 0;
+function playGame(){
+    //INIT user and computer scores to 0
+    let humanScore = 0;
+    let computerScore = 0;
 
-function playRound(humanChoice, computerChoice){
-    //SET humanChoice and computerChoice to uppercase
-    humanChoice = humanChoice.toUpperCase();
-    computerChoice = computerChoice.toUpperCase();
+    function playRound(humanChoice, computerChoice){
+        //SET humanChoice and computerChoice to uppercase
+        humanChoice = humanChoice.toUpperCase();
+        computerChoice = computerChoice.toUpperCase();
 
 
-    //console.log(humanChoice);
-    //console.log(computerChoice);
-    //IF humanChoice and computerChoice equal each other THEN
-        //RETURN it's a tie
-    if (humanChoice === computerChoice){
-        console.log("It's a tie!!!");
-        return;
-    }
-    //ELSE IF humanChoice and computer choice are (Rock, Scissors) OR (Paper, Rock) OR (Scissors, Paper) THEN
-        //RETURN human win.
-        //INCREMENT human score by one
-    else if ((humanChoice === "ROCK"&& computerChoice === "SCISSORS") || (humanChoice === "PAPER" && computerChoice=== "ROCK") || (humanChoice ==="SCISSORS"&& computerChoice === "PAPER")){
-        console.log(`You win!!! ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()} beats ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()}!`);
-        humanScore++;
-        return;
+        //console.log(humanChoice);
+        //console.log(computerChoice);
+        //IF humanChoice and computerChoice equal each other THEN
+            //RETURN it's a tie
+        if (humanChoice === computerChoice){
+            console.log("It's a tie!!!");
+            alert("It's a tie!!!");
+            return;
         }
-    //ELSE THEN
-        //RETURN computer win 
-        //INCREMENT computer score by one
-    //END IF
-    else{
-        console.log(`You lose!!! ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()} beats ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()}!`);
-        computerScore++;
-        return;
+        //ELSE IF humanChoice and computer choice are (Rock, Scissors) OR (Paper, Rock) OR (Scissors, Paper) THEN
+            //RETURN human win.
+            //INCREMENT human score by one
+        else if ((humanChoice === "ROCK"&& computerChoice === "SCISSORS") || (humanChoice === "PAPER" && computerChoice=== "ROCK") || (humanChoice ==="SCISSORS"&& computerChoice === "PAPER")){
+            console.log(`You win!!! ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()} beats ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()}!`);
+            alert(`You win!!! ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()} beats ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()}!`);
+            humanScore++;
+            return;
+            }
+        //ELSE THEN
+            //RETURN computer win 
+            //INCREMENT computer score by one
+        //END IF
+        else{
+            console.log(`You lose!!! ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()} beats ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()}!`);
+            alert(`You lose!!! ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()} beats ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()}!`);
+            computerScore++;
+            return;
+        }
+
     }
 
+    //REPEAT playRound with new human/computer selections until it has run 5 times
+    for (i = 0; i < 5; i++){
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+    //Return Score
+    console.log(`Game Over! You won ${humanScore} games, computer won ${computerScore}`);
+    alert(`Game Over! You won ${humanScore} games, computer won ${computerScore}`);
+    return;
 }
 
-//SET human and computer choices
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-// Use playRound function to determine winner. 
-playRound(humanSelection, computerSelection);
+playGame();
