@@ -49,7 +49,7 @@ function playRound(humanChoice, computerChoice){
         //INCREMENT human score by one
     else if ((humanChoice === "ROCK"&& computerChoice === "SCISSORS") || (humanChoice === "PAPER" && computerChoice=== "ROCK") || (humanChoice ==="SCISSORS"&& computerChoice === "PAPER")){
         console.log(`You win!!! ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()} beats ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()}!`);
-        humanScore = humanScore++;
+        humanScore++;
         return;
         }
     //ELSE THEN
@@ -58,7 +58,7 @@ function playRound(humanChoice, computerChoice){
     //END IF
     else{
         console.log(`You lose!!! ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()} beats ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()}!`);
-        computerScore = computerScore++;
+        computerScore++;
         return;
     }
 
