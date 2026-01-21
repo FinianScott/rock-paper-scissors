@@ -35,6 +35,9 @@ function playRound(humanChoice, computerChoice){
     humanChoice = humanChoice.toUpperCase();
     computerChoice = computerChoice.toUpperCase();
 
+
+    //console.log(humanChoice);
+    //console.log(computerChoice);
     //IF humanChoice and computerChoice equal each other THEN
         //RETURN it's a tie
     if (humanChoice === computerChoice){
@@ -44,8 +47,7 @@ function playRound(humanChoice, computerChoice){
     //ELSE IF humanChoice and computer choice are (Rock, Scissors) OR (Paper, Rock) OR (Scissors, Paper) THEN
         //RETURN human win.
         //INCREMENT human score by one
-    else if ((humanChoice === "ROCK"&& computerChoice === "SCISSORS") || (humanChoice = "PAPER" && computerChoice=== "ROCK") || (humanChoice ==="SCISSORS"&& computerChoice === "PAPER")){
-        console.log(humanChoice);
+    else if ((humanChoice === "ROCK"&& computerChoice === "SCISSORS") || (humanChoice === "PAPER" && computerChoice=== "ROCK") || (humanChoice ==="SCISSORS"&& computerChoice === "PAPER")){
         console.log(`You win!!! ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()} beats ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()}!`);
         humanScore = humanScore++;
         return;
@@ -55,7 +57,6 @@ function playRound(humanChoice, computerChoice){
         //INCREMENT computer score by one
     //END IF
     else{
-        console.log(humanChoice);
         console.log(`You lose!!! ${computerChoice.charAt(0)}${computerChoice.slice(1).toLowerCase()} beats ${humanChoice.charAt(0)}${humanChoice.slice(1).toLowerCase()}!`);
         computerScore = computerScore++;
         return;
