@@ -20,3 +20,8 @@ function getComputerChoice(){
     //ENDIF
     }
 }
+
+function getHumanChoice (){
+    //Get choice from user input. Assume valid value is entered. 
+    return prompt("Enter Rock, Paper, or Scissors.");
+}
